@@ -4,6 +4,9 @@ from detectron2.data import build_detection_test_loader
 from utility.LossEvalHook import LossEvalHook
 from detectron2.data import DatasetMapper
 from detectron2.config import *
+import os
+
+
 cfg = get_cfg()
 
 class MyTrainer(DefaultTrainer):
