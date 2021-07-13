@@ -1,7 +1,10 @@
 from detectron2.engine import DefaultTrainer
 from detectron2.evaluation import COCOEvaluator
 from detectron2.data import build_detection_test_loader
-
+from utility.LossEvalHook import LossEvalHook
+from detectron2.data import DatasetMapper
+from detectron2.config import *
+cfg = get_cfg()
 
 class MyTrainer(DefaultTrainer):
     @classmethod
