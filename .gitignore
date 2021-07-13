@@ -1,0 +1,12 @@
+Results Wake/
+.ipynb_checkpoints/
+.vscode/
+checkpoints/
+esri_detected/
+output/
+RTSI/
+Sar Wakes 3/
+ScenariTest/
+ShipAnnotations/
+ShipDataset/
+ShipTest.tif
