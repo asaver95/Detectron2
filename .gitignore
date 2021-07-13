@@ -11,3 +11,4 @@ ShipAnnotations/
 ShipDataset/
 ShipTest.tif
 ShipTest/
+**__pycache__**
