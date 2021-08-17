@@ -718,7 +718,7 @@ class MyVisualizer:
                 lighter_color = self._change_color_brightness(color, brightness_factor=0.7)
                 font_size = (
                     np.clip((height_ratio - 0.02) / 0.08 + 1, 1.2, 2)
-                    * 0.9
+                    * 1.2
                     * self._default_font_size
                 )
                 self.draw_text(
