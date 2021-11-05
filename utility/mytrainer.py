@@ -17,8 +17,8 @@ class MyTrainer(DefaultTrainer):
         return COCOEvaluator(dataset_name, cfg, True, output_folder)
 
 
-  @classmethod
-    def build_train_loader(cls, cfg):
+     @classmethod
+     def build_train_loader(cls, cfg):
          dataloader = build_detection_train_loader(cfg,
              mapper=DatasetMapper(cfg, is_train=True, augmentations=[
     #         T.Resize((1000,1000)),
