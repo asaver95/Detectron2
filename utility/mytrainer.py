@@ -41,4 +41,4 @@ class MyTrainer(DefaultTrainer):
                 DatasetMapper(self.cfg,True)
             )
         ))
-               return hooks
+        return hooks
