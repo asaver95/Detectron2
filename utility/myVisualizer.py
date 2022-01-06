@@ -413,7 +413,7 @@ class MyVisualizer:
             alpha = 0.3
 
         self.overlay_instances(
-           # masks=masks,
+            masks=masks,
            # boxes=boxes,
            # labels=labels,
             keypoints=keypoints,
