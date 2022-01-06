@@ -224,32 +224,32 @@ class _PanopticPrediction:
                 yield mask, sinfo
 
 
-#def _create_text_labels(classes, scores, class_names, is_crowd=None):
-#    """
-#    Args:
-#        classes (list[int] or None):
-#        scores (list[float] or None):
-#        class_names (list[str] or None):
-#        is_crowd (list[bool] or None):
-#
-#    Returns:
-#        list[str] or None
-#    """
-#    labels = None
-#    if classes is not None:
-#        if class_names is not None and len(class_names) > 0:
-#            labels = [class_names[i] for i in classes]
-#        else:
-#            labels = [str(i) for i in classes]
-#    if scores is not None:
-#        if labels is None:
-#            labels = ["{:.0f}%".format(s * 100) for s in scores]
-#        else:
-#            labels = ['Crater' for i in labels]
-#            labels = ["{} {:.0f}%".format(l, s * 100) for l, s in zip(labels, scores)]
-#    if labels is not None and is_crowd is not None:
-#        labels = [l + ("|crowd" if crowd else "") for l, crowd in zip(labels, is_crowd)]
-#    return labels
+def _create_text_labels(classes, scores, class_names, is_crowd=None):
+    """
+    Args:
+        classes (list[int] or None):
+        scores (list[float] or None):
+        class_names (list[str] or None):
+        is_crowd (list[bool] or None):
+
+    Returns:
+        list[str] or None
+    """
+    labels = None
+    if classes is not None:
+        if class_names is not None and len(class_names) > 0:
+            labels = [class_names[i] for i in classes]
+        else:
+            labels = [str(i) for i in classes]
+    if scores is not None:
+        if labels is None:
+            labels = ["{:.0f}%".format(s * 100) for s in scores]
+        else:
+            labels = ['Crater' for i in labels]
+            labels = ["{} {:.0f}%".format(l, s * 100) for l, s in zip(labels, scores)]
+    if labels is not None and is_crowd is not None:
+        labels = [l + ("|crowd" if crowd else "") for l, crowd in zip(labels, is_crowd)]
+    return labels
 
 
 class VisImage:
@@ -385,8 +385,8 @@ class MyVisualizer:
         """
         boxes = predictions.pred_boxes if predictions.has("pred_boxes") else None
         scores = predictions.scores if predictions.has("scores") else None
-        #classes = predictions.pred_classes if predictions.has("pred_classes") else None
-        #labels = _create_text_labels(classes, scores, self.metadata.get("thing_classes", None))
+        classes = predictions.pred_classes if predictions.has("pred_classes") else None
+        labels = _create_text_labels(classes, scores, self.metadata.get("thing_classes", None))
         keypoints = predictions.pred_keypoints if predictions.has("pred_keypoints") else None
 
         if predictions.has("pred_masks"):
@@ -415,10 +415,10 @@ class MyVisualizer:
         self.overlay_instances(
             masks=masks,
             boxes=boxes,
-            labels=labels,
+           # labels=labels,
             keypoints=keypoints,
             assigned_colors=colors,
-            alpha=alpha,
+           # alpha=alpha,
         )
         return self.output
 
