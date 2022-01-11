@@ -414,11 +414,11 @@ class MyVisualizer:
 
         self.overlay_instances(
             masks=masks,
-           # boxes=boxes,
-           # labels=labels,
+            boxes=boxes,
+            labels=labels,
             keypoints=keypoints,
-           # assigned_colors=colors,
-           # alpha=alpha,
+            assigned_colors=colors,
+            alpha=alpha,
         )
         return self.output
 
