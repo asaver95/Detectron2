@@ -19,7 +19,7 @@ class MyTrainer(DefaultTrainer):
 
     @classmethod
     def build_train_loader(cls, cfg):
-        dataloader = build_detection_train_loader(cfg,
+        dataloader = (cfg,
             mapper=DatasetMapper(cfg, is_train=True, augmentations=[
             # T.Resize((1000,1000)),
             T.RandomFlip(0.5, horizontal=True, vertical=False),
