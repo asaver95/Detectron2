@@ -3,6 +3,7 @@ from detectron2.evaluation import COCOEvaluator
 from detectron2.data import build_detection_test_loader
 from utility.LossEvalHook import LossEvalHook
 from detectron2.data import DatasetMapper
+import detectron2.data.transforms as T
 from detectron2.config import *
 import os
 
