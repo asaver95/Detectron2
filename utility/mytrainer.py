@@ -20,12 +20,12 @@ class MyTrainer(DefaultTrainer):
     @classmethod
     def build_train_loader(cls, cfg):
         dataloader = (cfg,mapper)
-            mapper=DatasetMapper(cfg, is_train=True, augmentations=[
-            # T.Resize((1000,1000)),
-            T.RandomFlip(0.5, horizontal=True, vertical=False),
-            T.RandomFlip(0.5, horizontal=False, vertical=True),
-            T.RandomRotation(angle=[-60,60], expand=True, center=None, sample_style='range', interp=None),
-            T.RandomContrast(intensity_min=-1, intensity_max=2),
+        mapper=DatasetMapper(cfg, is_train=True, augmentations=[
+        # T.Resize((1000,1000)),
+        T.RandomFlip(0.5, horizontal=True, vertical=False),
+        T.RandomFlip(0.5, horizontal=False, vertical=True),
+        T.RandomRotation(angle=[-60,60], expand=True, center=None, sample_style='range', interp=None),
+        T.RandomContrast(intensity_min=-1, intensity_max=2),
         ])
         return dataloader   
         # use this dataloader instead of the default
