@@ -30,15 +30,15 @@ class MyTrainer(DefaultTrainer):
          return dataloader   
         # use this dataloader instead of the default
         
-    def build_hooks(self):
-        hooks = super().build_hooks()
-        hooks.insert(-1,LossEvalHook(
-            cfg.TEST.EVAL_PERIOD,
-            self.model,
-            build_detection_test_loader(
-                self.cfg,
-                self.cfg.DATASETS.TEST[0],
-                DatasetMapper(self.cfg,True)
-            )
-        ))
-        return hooks
+     def build_hooks(self):
+         hooks = super().build_hooks()
+         hooks.insert(-1,LossEvalHook(
+             cfg.TEST.EVAL_PERIOD,
+             self.model,
+             build_detection_test_loader(
+                 self.cfg,
+                 self.cfg.DATASETS.TEST[0],
+                 DatasetMapper(self.cfg,True)
+             )
+         ))
+         return hooks
