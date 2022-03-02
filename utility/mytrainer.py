@@ -10,11 +10,11 @@ import os
 cfg = get_cfg()
 
 class MyTrainer(DefaultTrainer):
-    @classmethod
-    def build_evaluator(cls, cfg, dataset_name, output_folder=None):
-        if output_folder is None:
-            output_folder = os.path.join(cfg.OUTPUT_DIR, "inference")
-        return COCOEvaluator(dataset_name, cfg, True, output_folder)
+    #@classmethod
+    #def build_evaluator(cls, cfg, dataset_name, output_folder=None):
+    #    if output_folder is None:
+    #        output_folder = os.path.join(cfg.OUTPUT_DIR, "inference")
+    #    return COCOEvaluator(dataset_name, cfg, True, output_folder)
 
 
     @classmethod
@@ -25,7 +25,7 @@ class MyTrainer(DefaultTrainer):
             T.RandomFlip(0.5, horizontal=True, vertical=False),
             T.RandomFlip(0.5, horizontal=False, vertical=True),
             T.RandomRotation(angle=[-60,60], expand=True, center=None, sample_style='range', interp=None),
-            # T.RandomContrast(intensity_min=-1, intensity_max=2),
+            T.RandomContrast(intensity_min=-1, intensity_max=2),
         ]))
         return dataloader   
         # use this dataloader instead of the default
