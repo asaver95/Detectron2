@@ -4,6 +4,7 @@ from detectron2.data import build_detection_test_loader
 from utility.LossEvalHook import LossEvalHook
 from detectron2.data import DatasetMapper
 import detectron2.data.transforms as T
+import detectron2.data.build_detection_train_loader
 from detectron2.config import *
 import os
 
